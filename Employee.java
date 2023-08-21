@@ -1,25 +1,19 @@
+package Payroll;
 public class Employee {
 
-    public String employeeId;
-    public String name;
-    public int salary;
-    public EmployeeType employeeType;
+    private String employeeId;
+    private String name;
+    private int salary;
+    private EmployeeType employeeType;
 
     public Employee(String employeeId, String name, int salary){
 
         setEmployeeId(employeeId);
         setName(name);
         setSalary(salary);
-        this.employeeType = EmployeeType.FULL_TIME;
 
     }
 
-    public Employee(String employeeId, String name, int rate, int hours){
-        setEmployeeId(employeeId);
-        setName(name);
-        setSalary(rate,hours);
-        this.employeeType = EmployeeType.PART_TIME;
-    }
 
     public String getName(){
         return this.name;
@@ -29,8 +23,12 @@ public class Employee {
         return this.employeeId;
     }
 
-    public EmployeeType gEmployeeType(){
+    public EmployeeType getEmployeeType(){
         return this.employeeType;
+    }
+
+    public int getSalary(){
+        return this.salary;
     }
 
     public void setSalary(int salary){
@@ -49,8 +47,17 @@ public class Employee {
         this.employeeId = employeeId;
     }
 
+    public void setEmployeeType(EmployeeType employeeType){
+
+        this.employeeType = employeeType;
+
+    }
+
     public void printDetails(){
-        System.out.println(this.employeeId+" - "+this.name+" has salary of "+this.salary+"Rs");
+        String employeeId = getEmployeeId();
+        String name = getName();
+        int salary = getSalary();
+        System.out.println(employeeId+" - "+name+" has salary of "+salary+"Rs");
     }
 
 
