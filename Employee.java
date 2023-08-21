@@ -1,16 +1,15 @@
 package Payroll;
-public class Employee {
+public abstract class Employee {
 
     private String employeeId;
     private String name;
     private int salary;
     private EmployeeType employeeType;
 
-    public Employee(String employeeId, String name, int salary){
+    public Employee(String employeeId, String name){
 
         setEmployeeId(employeeId);
         setName(name);
-        setSalary(salary);
 
     }
 
@@ -31,12 +30,10 @@ public class Employee {
         return this.salary;
     }
 
+    protected abstract void calculateSalary();
+
     public void setSalary(int salary){
         this.salary = salary;
-    }
-
-    public void setSalary(int rate, int hours){
-        this.salary = rate*hours;
     }
 
     public void setName(String name){
